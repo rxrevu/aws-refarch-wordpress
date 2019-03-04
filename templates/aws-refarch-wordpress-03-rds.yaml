@@ -66,8 +66,8 @@ Parameters:
     Type: String
   DatabaseInstanceType:
     AllowedValues:
-      - db.t2.small
-      - db.t2.medium
+      - db.t3.small
+      - db.t3.medium
       - db.r3.large
       - db.r3.xlarge
       - db.r3.2xlarge
@@ -80,7 +80,7 @@ Parameters:
       - db.r4.8xlarge
       - db.r4.16xlarge
     ConstraintDescription: Must be a valid RDS instance class.
-    Default: db.t2.medium
+    Default: db.t3.medium
     Description: The Amazon RDS database instance class.
     Type: String
   DatabaseMasterUsername:
