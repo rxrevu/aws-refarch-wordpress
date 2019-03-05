@@ -162,7 +162,7 @@ Parameters:
   EfsCopyDataFrom:
     Description: Clone EFS from existing EFS
     Type: String
-    Default: !Ref 'AWS::NoValue'
+    Default: ''
   WPDirectory:
     Description: Wordpress directory
     Type: String

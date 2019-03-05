@@ -1205,8 +1205,6 @@ Resources:
           !Ref DatabaseEncrpytedBoolean
         DatabaseCmk:
           !Ref DatabaseCmk
-        DatabaseRestoreSnapshot:
-          ''
         DatabaseSecurityGroup:
           !GetAtt [ securitygroups, Outputs.DatabaseSecurityGroup ]
         Subnet:

@@ -105,7 +105,7 @@ Parameters:
   DatabaseRestoreSnapshot:
     Description: The snapshot name to restore from.
     Type: String
-    Default: !Ref 'AWS::NoValue'
+    Default: ''
   DatabaseSecurityGroup:
     Description: Select the database security group.
     Type: AWS::EC2::SecurityGroup::Id
@@ -183,7 +183,7 @@ Resources:
       MasterUserPassword: !If [ NoSnapshot, !Ref DatabaseMasterPassword, !Ref 'AWS::NoValue']
       Port: 3306
       StorageEncrypted: !Ref DatabaseEncrpytedBoolean
-      SnapshotIdentifier: !If [ NoSnapshot, !Ref 'AWS::NoValue', !Ref DatabaseRestoreSnapshot]
+      SnapshotIdentifier: !Ref 'AWS::NoValue'
       Tags:
         - Key: Name
           Value: !Join [ '', [ 'WordPress / ', !Ref 'AWS::StackName' ] ]
