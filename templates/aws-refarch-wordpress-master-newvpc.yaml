@@ -1076,7 +1076,7 @@ Resources:
         Subnet:
           !GetAtt [ newvpc, Outputs.DataSubnet ]
         WPDirectory:
-          !Ref WPDirectory 
+          !Ref WPDirectory
       TemplateURL: https://s3.amazonaws.com/rxrevu-aws-refarch/wordpress/latest/templates/aws-refarch-wordpress-03-efsfilesystem.yaml
   efsalarms:
     Condition: EfsCreateAlarms
