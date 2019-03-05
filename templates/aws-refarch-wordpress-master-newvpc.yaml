@@ -826,7 +826,7 @@ Parameters:
   VpcCidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.0.0/16
+    Default: 10.255.0.0/16
     Description: CIDR block for the VPC
     Type: String
   VpcTenancy:
@@ -839,109 +839,109 @@ Parameters:
   DataSubnet0Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.100.0/24
+    Default: 10.255.100.0/24
     Description: CIDR block for data subnet 0 located in Availability Zone 0
     Type: String
   DataSubnet1Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.101.0/24
+    Default: 10.255.101.0/24
     Description: CIDR block for data subnet 1 located in Availability Zone 1
     Type: String
   DataSubnet2Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.102.0/24
+    Default: 10.255.102.0/24
     Description: CIDR block for data subnet 2 located in Availability Zone 2
     Type: String
   DataSubnet3Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.103.0/24
+    Default: 10.255.103.0/24
     Description: CIDR block for data subnet 3 located in Availability Zone 3
     Type: String
   DataSubnet4Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.104.0/24
+    Default: 10.255.104.0/24
     Description: CIDR block for data subnet 4 located in Availability Zone 4
     Type: String
   DataSubnet5Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.105.0/24
+    Default: 10.255.105.0/24
     Description: CIDR block for data subnet 5 located in Availability Zone 5
     Type: String
   PublicSubnet0Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.200.0/24
+    Default: 10.255.200.0/24
     Description: CIDR block for Public subnet 0 located in Availability Zone 0
     Type: String
   PublicSubnet1Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.201.0/24
+    Default: 10.255.201.0/24
     Description: CIDR block for Public subnet 1 located in Availability Zone 1
     Type: String
   PublicSubnet2Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.202.0/24
+    Default: 10.255.202.0/24
     Description: CIDR block for Public subnet 2 located in Availability Zone 2
     Type: String
   PublicSubnet3Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.203.0/24
+    Default: 10.255.203.0/24
     Description: CIDR block for Public subnet 3 located in Availability Zone 3
     Type: String
   PublicSubnet4Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.204.0/24
+    Default: 10.255.204.0/24
     Description: CIDR block for Public subnet 4 located in Availability Zone 4
     Type: String
   PublicSubnet5Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.205.0/24
+    Default: 10.255.205.0/24
     Description: CIDR block for Public subnet 5 located in Availability Zone 5
     Type: String
   WebSubnet0Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.0.0/22
+    Default: 10.255.0.0/22
     Description: CIDR block for Web subnet 0 located in Availability Zone 0
     Type: String
   WebSubnet1Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.4.0/22
+    Default: 10.255.4.0/22
     Description: CIDR block for Web subnet 1 located in Availability Zone 1
     Type: String
   WebSubnet2Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.8.0/22
+    Default: 10.255.8.0/22
     Description: CIDR block for Web subnet 2 located in Availability Zone 2
     Type: String
   WebSubnet3Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.12.0/22
+    Default: 10.255.12.0/22
     Description: CIDR block for Web subnet 3 located in Availability Zone 3
     Type: String
   WebSubnet4Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.16.0/22
+    Default: 10.255.16.0/22
     Description: CIDR block for Web subnet 4 located in Availability Zone 4
     Type: String
   WebSubnet5Cidr:
     AllowedPattern: "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/(1[6-9]|2[0-8]))$"
     ConstraintDescription: CIDR block parameter must be in the form x.x.x.x/16-28
-    Default: 10.0.20.0/22
+    Default: 10.255.20.0/22
     Description: CIDR block for Web subnet 5 located in Availability Zone 5
     Type: String
   WPVersion:
@@ -1077,7 +1077,6 @@ Resources:
           !Ref WPDirectory
         Subnet:
           !GetAtt [ newvpc, Outputs.DataSubnet ]
-
       TemplateURL: https://s3.amazonaws.com/rxrevu-aws-refarch/wordpress/latest/templates/aws-refarch-wordpress-03-efsfilesystem.yaml
   efsalarms:
     Condition: EfsCreateAlarms

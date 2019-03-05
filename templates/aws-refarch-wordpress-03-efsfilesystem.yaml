@@ -166,6 +166,7 @@ Parameters:
   WPDirectory:
     Description: Wordpress directory
     Type: String
+    Default: rxrevuwp
   SecurityGroup:
     Description: Select the Amazon EFS security group.
     Type: AWS::EC2::SecurityGroup::Id   
