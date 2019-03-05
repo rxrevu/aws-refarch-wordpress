@@ -1050,7 +1050,7 @@ Resources:
         PublicAlbFullName:
           !GetAtt [ publicalb, Outputs.PublicAlbFullName ]
         EfsCreateAlarms:
-          !Ref EfsCreateAlarms         
+          !Ref EfsCreateAlarms
       TemplateURL: https://s3.amazonaws.com/rxrevu-aws-refarch/wordpress/latest/templates/aws-refarch-wordpress-06-dashboard.yaml
   efsfilesystem:
     DependsOn: [ newvpc, securitygroups ]
@@ -1070,13 +1070,14 @@ Resources:
         InstanceType:
           !Ref EfsGrowthInstanceType
         NumberOfSubnets:
-          !Ref NumberOfAZs  
+          !Ref NumberOfAZs
         PerformanceMode:
           !Ref EfsPerformanceMode
-        Subnet:
-          !GetAtt [ newvpc, Outputs.DataSubnet ]
         WPDirectory:
           !Ref WPDirectory
+        Subnet:
+          !GetAtt [ newvpc, Outputs.DataSubnet ]
+
       TemplateURL: https://s3.amazonaws.com/rxrevu-aws-refarch/wordpress/latest/templates/aws-refarch-wordpress-03-efsfilesystem.yaml
   efsalarms:
     Condition: EfsCreateAlarms
@@ -1097,7 +1098,7 @@ Resources:
         InstanceType:
           !Ref EfsAlarmsInstanceType
         NumberOfSubnets:
-          !Ref NumberOfAZs  
+          !Ref NumberOfAZs
         Subnet:
           !GetAtt [ newvpc, Outputs.DataSubnet ]
         WarningThreshold:
@@ -1204,6 +1205,8 @@ Resources:
           !Ref DatabaseEncrpytedBoolean
         DatabaseCmk:
           !Ref DatabaseCmk
+        DatabaseRestoreSnapshot:
+          AWS::NoValue
         DatabaseSecurityGroup:
           !GetAtt [ securitygroups, Outputs.DatabaseSecurityGroup ]
         Subnet:
