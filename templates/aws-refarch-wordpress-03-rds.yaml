@@ -105,6 +105,7 @@ Parameters:
   DatabaseRestoreSnapshot:
     Description: The snapshot name to restore from.
     Type: String
+    Default: !Ref 'AWS::NoValue'
   DatabaseSecurityGroup:
     Description: Select the database security group.
     Type: AWS::EC2::SecurityGroup::Id

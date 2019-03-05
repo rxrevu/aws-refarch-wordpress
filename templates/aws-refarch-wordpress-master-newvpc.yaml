@@ -1206,7 +1206,7 @@ Resources:
         DatabaseCmk:
           !Ref DatabaseCmk
         DatabaseRestoreSnapshot:
-          !Ref 'AWS::NoValue'
+          ''
         DatabaseSecurityGroup:
           !GetAtt [ securitygroups, Outputs.DatabaseSecurityGroup ]
         Subnet:
