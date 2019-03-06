@@ -80,7 +80,7 @@ Parameters:
       - db.r4.8xlarge
       - db.r4.16xlarge
     ConstraintDescription: Must be a valid RDS instance class.
-    Default: db.t3.medium
+    Default: db.t3.small
     Description: The Amazon RDS database instance class.
     Type: String
   DatabaseMasterUsername:
@@ -170,7 +170,7 @@ Resources:
       BackupRetentionPeriod: 30
       DatabaseName: !Ref DatabaseName
       DBSubnetGroupName: !Ref DataSubnetGroup
-      Engine: aurora
+      Engine: aurora-mysql
       KmsKeyId:
         !If [ UseAWS-ManagedCMK, !Ref 'AWS::NoValue', !Ref DatabaseCmk ]
       MasterUsername: !Ref DatabaseMasterUsername
@@ -205,7 +205,7 @@ Resources:
       DBClusterIdentifier: !Ref DatabaseCluster
       DBInstanceClass: !Ref DatabaseInstanceType
       DBSubnetGroupName: !Ref DataSubnetGroup
-      Engine: aurora
+      Engine: aurora-mysql
       Tags:
         - Key: Name
           Value: !Join [ '', [ 'WordPress / ', !Ref 'AWS::StackName' ] ]
