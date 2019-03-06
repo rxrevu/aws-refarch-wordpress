@@ -157,8 +157,8 @@ Parameters:
     AllowedValues:
     - 5.5
     - 5.6
-    - 7.2
-    Default: 7.2
+    - 7.0
+    Default: 7.0
     Description: The version of PHP to install.
     Type: String 
   PublicAlbTargetGroupArn:
