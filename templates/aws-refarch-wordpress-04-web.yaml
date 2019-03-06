@@ -157,8 +157,8 @@ Parameters:
     AllowedValues:
     - 5.5
     - 5.6
-    - 7.0
-    Default: 7.0
+    - 7.2
+    Default: 7.2
     Description: The version of PHP to install.
     Type: String 
   PublicAlbTargetGroupArn:
@@ -352,7 +352,7 @@ Conditions:
   PHP56:
     !Equals [ 5.6, !Ref PHPVersion ]
   PHP70:
-    !Equals [ 7.0, !Ref PHPVersion ]
+    !Equals [ 7.2, !Ref PHPVersion ]
   Subnet0: !Or
     - !Condition NumberOfSubnets1
     - !Condition NumberOfSubnets2
@@ -533,7 +533,7 @@ Resources:
                     "#!/bin/bash -xe\n",
                     "if [ ! -f /etc/httpd/conf.d/", !Ref WPDirectory, ".conf ]; then\n",                    
                     "   touch /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
-                    "   echo 'ServerName 127.0.0.1:80' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
+                    "   echo 'ServerName 127.2.0.1:80' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
                     "   echo 'DocumentRoot /var/www/wordpress/", !Ref WPDirectory, "' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
                     "   echo '<Directory /var/www/wordpress/", !Ref WPDirectory, ">' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
                     "   echo '  Options Indexes FollowSymLinks' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
@@ -741,7 +741,7 @@ Resources:
                     "#!/bin/bash -xe\n",
                     "if [ ! -f /etc/httpd/conf.d/", !Ref WPDirectory, ".conf ]; then\n",                    
                     "   touch /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
-                    "   echo 'ServerName 127.0.0.1:80' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
+                    "   echo 'ServerName 127.2.0.1:80' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
                     "   echo 'DocumentRoot /var/www/wordpress/", !Ref WPDirectory, "' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
                     "   echo '<Directory /var/www/wordpress/", !Ref WPDirectory, ">' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
                     "   echo '  Options Indexes FollowSymLinks' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
@@ -936,11 +936,11 @@ Resources:
             yum:
               awslogs: []
               httpd24: []
-              mysql56: []
-              php70: []
-              php70-devel: []
+              mysql57: []
+              php72: []
+              php72-devel: []
               php7-pear: []
-              php70-mysqlnd: []
+              php72-mysqlnd: []
           files:
             /tmp/create_site_conf.sh:
               content:
@@ -949,7 +949,7 @@ Resources:
                     "#!/bin/bash -xe\n",
                     "if [ ! -f /etc/httpd/conf.d/", !Ref WPDirectory, ".conf ]; then\n",                    
                     "   touch /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
-                    "   echo 'ServerName 127.0.0.1:80' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
+                    "   echo 'ServerName 127.2.0.1:80' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
                     "   echo 'DocumentRoot /var/www/wordpress/", !Ref WPDirectory, "' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
                     "   echo '<Directory /var/www/wordpress/", !Ref WPDirectory, ">' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
                     "   echo '  Options Indexes FollowSymLinks' >> /etc/httpd/conf.d/", !Ref WPDirectory, ".conf\n",
@@ -978,14 +978,14 @@ Resources:
                   #!/bin/bash -xe
                   ln -s /usr/bin/pecl7 /usr/bin/pecl #just so pecl is available easily
                   pecl7 install igbinary
-                  wget -P /tmp/ https://s3.amazonaws.com/aws-refarch/wordpress/latest/bits/AmazonElastiCacheClusterClient-2.0.1-PHP70-64bit.tar.gz
+                  cd /tmp && curl -L https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.2/latest-64bit > AmazonElastiCacheClusterClient-2.0.1-PHP70-64bit.tar.gz
                   tar -xf '/tmp/AmazonElastiCacheClusterClient-2.0.1-PHP70-64bit.tar.gz'
-                  cp '/tmp/artifact/amazon-elasticache-cluster-client.so' /usr/lib64/php/7.0/modules/
-                  if [ ! -f /etc/php-7.0.d/50-memcached.ini ]; then
-                      touch /etc/php-7.0.d/50-memcached.ini
+                  cp '/tmp/artifact/amazon-elasticache-cluster-client.so' /usr/lib64/php/7.2/modules/
+                  if [ ! -f /etc/php-7.2.d/50-memcached.ini ]; then
+                      touch /etc/php-7.2.d/50-memcached.ini
                   fi
-                  echo 'extension=igbinary.so;' >> /etc/php-7.0.d/50-memcached.ini
-                  echo 'extension=/usr/lib64/php/7.0/modules/amazon-elasticache-cluster-client.so;' >> /etc/php-7.0.d/50-memcached.ini
+                  echo 'extension=igbinary.so;' >> /etc/php-7.2.d/50-memcached.ini
+                  echo 'extension=/usr/lib64/php/7.2/modules/amazon-elasticache-cluster-client.so;' >> /etc/php-7.2.d/50-memcached.ini
               mode: 000500
               owner: root
               group: root
@@ -1002,9 +1002,9 @@ Resources:
                   if [ ! -d /var/www/.opcache ]; then                    
                       mkdir -p /var/www/.opcache
                   fi
-                  # enable opcache in /etc/php-7.0.d/10-opcache.ini
-                  sed -i 's/;opcache.file_cache=.*/opcache.file_cache=\/var\/www\/.opcache/' /etc/php-7.0.d/10-opcache.ini
-                  sed -i 's/opcache.memory_consumption=.*/opcache.memory_consumption=512/' /etc/php-7.0.d/10-opcache.ini
+                  # enable opcache in /etc/php-7.2.d/10-opcache.ini
+                  sed -i 's/;opcache.file_cache=.*/opcache.file_cache=\/var\/www\/.opcache/' /etc/php-7.2.d/10-opcache.ini
+                  sed -i 's/opcache.memory_consumption=.*/opcache.memory_consumption=512/' /etc/php-7.2.d/10-opcache.ini
                   # download opcache-instance.php to verify opcache status
                   if [ ! -f /var/www/wordpress/${WPDirectory}/opcache-instanceid.php ]; then
                       wget -P /var/www/wordpress/${WPDirectory}/ https://s3.amazonaws.com/aws-refarch/wordpress/latest/bits/opcache-instanceid.php
@@ -1070,7 +1070,7 @@ Resources:
                   "",[
                     "#!/bin/bash -x\n",
                     "\n",
-                    "wget -P /etc/php-7.0.d/ ", !Ref PHPIniOverride, "\n"
+                    "wget -P /etc/php-7.2.d/ ", !Ref PHPIniOverride, "\n"
                   ]
                 ]
               mode: 000500
