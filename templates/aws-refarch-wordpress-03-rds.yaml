@@ -171,6 +171,7 @@ Resources:
       DatabaseName: !Ref DatabaseName
       DBSubnetGroupName: !Ref DataSubnetGroup
       Engine: aurora-mysql
+      DBClusterParameterGroupName: default.aurora-mysql5.7
       KmsKeyId:
         !If [ UseAWS-ManagedCMK, !Ref 'AWS::NoValue', !Ref DatabaseCmk ]
       MasterUsername: !Ref DatabaseMasterUsername
@@ -193,6 +194,7 @@ Resources:
       DBInstanceClass: !Ref DatabaseInstanceType
       DBSubnetGroupName: !Ref DataSubnetGroup
       Engine: aurora-mysql
+      DBClusterParameterGroupName: default.aurora-mysql5.7
       Tags:
         - Key: Name
           Value: !Join [ '', [ 'WordPress / ', !Ref 'AWS::StackName' ] ]
@@ -206,6 +208,7 @@ Resources:
       DBInstanceClass: !Ref DatabaseInstanceType
       DBSubnetGroupName: !Ref DataSubnetGroup
       Engine: aurora-mysql
+      DBClusterParameterGroupName: default.aurora-mysql5.7
       Tags:
         - Key: Name
           Value: !Join [ '', [ 'WordPress / ', !Ref 'AWS::StackName' ] ]
