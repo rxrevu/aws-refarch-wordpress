@@ -352,7 +352,7 @@ Conditions:
   PHP56:
     !Equals [ 5.6, !Ref PHPVersion ]
   PHP70:
-    !Equals [ 7.2, !Ref PHPVersion ]
+    !Equals [ 7.0, !Ref PHPVersion ]
   Subnet0: !Or
     - !Condition NumberOfSubnets1
     - !Condition NumberOfSubnets2
