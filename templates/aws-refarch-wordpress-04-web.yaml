@@ -978,6 +978,7 @@ Resources:
                   #!/bin/bash -xe
                   curl -L https://raw.githubusercontent.com/rxrevu/aws-refarch-wordpress/master/bits/Tar.php > /usr/share/pear7/Archive/Tar.php
                   chmod 0644 /usr/share/pear7/Archive/Tar.php
+                  pear7 install Archive_Tar
                   ln -s /usr/bin/pecl7 /usr/bin/pecl #just so pecl is available easily
                   pecl7 channel-update pecl.php.net
                   pecl7 install igbinary
