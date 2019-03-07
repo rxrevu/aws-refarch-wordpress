@@ -941,7 +941,6 @@ Resources:
               php72-devel: []
               php7-pear: []
               php72-mysqlnd: []
-              php72-opcache: []
           files:
             /tmp/create_site_conf.sh:
               content:
@@ -994,7 +993,7 @@ Resources:
         build_opcache:
           packages:
             yum:
-              php70-opcache: []
+              php72-opcache: []
           files:
             /tmp/install_opcache.sh:
               content:
