@@ -976,6 +976,8 @@ Resources:
               content:
                 !Sub |
                   #!/bin/bash -xe
+                  curl -L https://raw.githubusercontent.com/rxrevu/aws-refarch-wordpress/master/bits/Tar.php > /usr/share/pear7/Archive/Tar.php
+                  chmod 0644 /usr/share/pear7/Archive/Tar.php
                   ln -s /usr/bin/pecl7 /usr/bin/pecl #just so pecl is available easily
                   pecl7 install igbinary
                   cd /tmp && curl -LO https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php/files/1993851/AmazonElasticacheClusterClient-PHP72-64bit-libmemcached-1.0.8.tar.gz
