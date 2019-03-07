@@ -978,9 +978,9 @@ Resources:
                   #!/bin/bash -xe
                   ln -s /usr/bin/pecl7 /usr/bin/pecl #just so pecl is available easily
                   pecl7 install igbinary
-                  cd /tmp && curl -L https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.2/latest-64bit > AmazonElastiCacheClusterClient-2.0.1-PHP70-64bit.tar.gz
-                  tar -xf '/tmp/AmazonElastiCacheClusterClient-2.0.1-PHP70-64bit.tar.gz'
-                  cp '/tmp/artifact/amazon-elasticache-cluster-client.so' /usr/lib64/php/7.2/modules/
+                  curl -L https://elasticache-downloads.s3.amazonaws.com/ClusterClient/PHP-7.2/latest-64bit > /tmp/AmazonElastiCacheClusterClient-2.0.1-PHP70-64bit.tar.gz
+                  tar -C /tmp -xf '/tmp/AmazonElastiCacheClusterClient-2.0.1-PHP70-64bit.tar.gz'
+                  cp '/tmp/amazon-elasticache-cluster-client.so' /usr/lib64/php/7.2/modules/
                   if [ ! -f /etc/php-7.2.d/50-memcached.ini ]; then
                       touch /etc/php-7.2.d/50-memcached.ini
                   fi
