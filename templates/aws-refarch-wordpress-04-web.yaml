@@ -979,7 +979,9 @@ Resources:
                   curl -L https://raw.githubusercontent.com/rxrevu/aws-refarch-wordpress/master/bits/Tar.php > /usr/share/pear7/Archive/Tar.php
                   chmod 0644 /usr/share/pear7/Archive/Tar.php
                   ln -s /usr/bin/pecl7 /usr/bin/pecl #just so pecl is available easily
+                  pecl7 channel-update pecl.php.net
                   pecl7 install igbinary
+                  chmod 0755 /usr/lib64/php/7.2/modules/igbinary.so
                   cd /tmp && curl -LO https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php/files/1993851/AmazonElasticacheClusterClient-PHP72-64bit-libmemcached-1.0.8.tar.gz
                   tar -xf AmazonElasticacheClusterClient-PHP72-64bit-libmemcached-1.0.8.tar.gz
                   cp amazon-elasticache-cluster-client.so /usr/lib64/php/7.2/modules/
@@ -1010,7 +1012,7 @@ Resources:
                   sed -i 's/opcache.memory_consumption=.*/opcache.memory_consumption=512/' /etc/php-7.2.d/10-opcache.ini
                   # download opcache-instance.php to verify opcache status
                   if [ ! -f /var/www/wordpress/${WPDirectory}/opcache-instanceid.php ]; then
-                      wget -P /var/www/wordpress/${WPDirectory}/ https://s3.amazonaws.com/aws-refarch/wordpress/latest/bits/opcache-instanceid.php
+                      wget -P /var/www/wordpress/${WPDirectory}/ https://raw.githubusercontent.com/rxrevu/aws-refarch-wordpress/master/bits/opcache-instance-id.php
                   fi
               mode: 000500
               owner: root
@@ -1050,7 +1052,7 @@ Resources:
                     "       chown -R apache:apache /var/www/wordpress/", !Ref WPDirectory, "\n",
                     "       chmod u+wrx /var/www/wordpress/", !Ref WPDirectory, "/wp-content/*\n",
                     "       if [ ! -f /var/www/wordpress/", !Ref WPDirectory, "/opcache-instanceid.php ]; then\n",
-                    "         wget -P /var/www/wordpress/", !Ref WPDirectory, "/ https://s3.amazonaws.com/aws-refarch/wordpress/latest/bits/opcache-instanceid.php\n",
+                    "         wget -P /var/www/wordpress/", !Ref WPDirectory, "/ https://raw.githubusercontent.com/rxrevu/aws-refarch-wordpress/master/bits/opcache-instance-id.php\n",
                     "       fi\n",
                     "   fi\n",
                     "   RESULT=$?\n",
